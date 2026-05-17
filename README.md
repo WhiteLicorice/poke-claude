@@ -79,7 +79,7 @@ Create a new cron job in FastCron and set these settings:
 
 #### Basic settings
 - **URL:** `https://api.github.com/repos/YOUR_USERNAME/YOUR_REPO/actions/workflows/poke-claude.yml/dispatches` (just copy `YOUR_USERNAME/YOUR_REPO` off your address bar)
-- Click `Crontab` and decide when you want to poke Claude and start your usage window. Remember to your timezone correctly.
+- Click `Crontab` and decide when you want to poke Claude and start your usage window. Remember to set your timezone correctly.
 
 #### Send HTTP request
 - **Method:** `POST`
