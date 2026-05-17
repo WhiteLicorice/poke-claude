@@ -55,7 +55,7 @@ jobs:
         continue-on-error: true   # Gracefully handles quota exhaustion
 ```
 
-If you don't want to set this up on an existing repository, you can fork this one.
+If you don't want to set this up on an existing repository, you can fork this one or copy it as a template.
 
 **Why `continue-on-error: true`?** When your usage limit is already exhausted, the workflow won't fail. It just exits. This keeps your repository's Actions tab clean.
 
