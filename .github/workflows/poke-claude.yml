@@ -1,0 +1,25 @@
+name: poke-claude
+
+on:
+  workflow_dispatch: {}   # Triggered by FastCron via API
+  # Optional fallback schedule (GitHub's own scheduler, may drift, not recommended)
+  # schedule:
+  #   - cron: '0 12,17,22,3 * * *'
+
+jobs:
+  poke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions:
+      id-token: write   # REQUIRED for OAuth authentication
+      contents: read
+    steps:
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Send heartbeat
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_OAUTH_TOKEN }}
+        run: |
+          echo "Say Hello and nothing else." | claude --model haiku
+        continue-on-error: true   # Gracefully handles quota exhaustion
